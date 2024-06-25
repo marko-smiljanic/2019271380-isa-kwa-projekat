@@ -37,7 +37,7 @@ Struktura aplikacije:
 Backend (Spring Boot):
 
 Entiteti: Korisnik, Pravo pristupa, Korisnik has pravo, Knjiga, Kategorija, Autor, Iznajmljivanje, Recenzija.
-Kontroleri: Endpoints za knjige, korisnike, zaduženja, kategorije, autore i recenzije.
+Kontroleri: Endpoints za knjige, korisnike, Iznajmljivanje, kategorije, autore i recenzije.
 Servisi: Logika aplikacije.
 Repositoriji: Pristup bazi podataka.
 DTOs: Data Transfer Objects za slanje podataka između frontend-a i backend-a.

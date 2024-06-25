@@ -15,8 +15,11 @@ public class Autor {
 	@Id
    	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	@Column(nullable = false)
 	private String ime;
+	@Column(nullable = false)
 	private String prezime;
+	
 	
 	@OneToMany(mappedBy = "autor")
 	private Set<Knjiga> knjige = new HashSet<Knjiga>();
@@ -26,7 +29,14 @@ public class Autor {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public Autor(Long id, String ime, String prezime) {
+		super();
+		this.id = id;
+		this.ime = ime;
+		this.prezime = prezime;
+	}
+
+
 	public Long getId() {
 		return id;
 	}
@@ -59,6 +69,7 @@ public class Autor {
 	public void setKnjige(Set<Knjiga> knjige) {
 		this.knjige = knjige;
 	}
+	
 	
 	
 

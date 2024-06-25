@@ -1,38 +1,29 @@
-package app.model;
+package app.dto;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@Entity
-public class Korisnik {
-	@Id
-   	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+//sa ovim sprecavam problem rekruzije u inicijalizaciji dto preko konverzije u model maperu
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class KorisnikDTO {
+	
     private Long id;
-	@Column(unique = true)
 	private String korisnickoIme;
-	@Column(length = 255)
 	private String lozinka;
 	private String ime;
 	private String prezime;
 	
+	@JsonIgnore     //ignorisi u json serijalizaciji. Logika je valjda da ono sto nemam u konstruktoru ne vracam kroz dto
+	private Set<KorisnikHasPravoDTO> korisnikHasPravo = new HashSet<KorisnikHasPravoDTO>();
 	
-	@OneToMany(mappedBy = "korisnik")  									//kako se polje zove u korisnik has pravo
-	private Set<KorisnikHasPravo> korisnikHasPravo = new HashSet<KorisnikHasPravo>();
+	public KorisnikDTO() {}
 	
-	
-	public Korisnik() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Korisnik(Long id, String korisnickoIme, String lozinka, String ime, String prezime) {
+	public KorisnikDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime) {
 		super();
 		this.id = id;
 		this.korisnickoIme = korisnickoIme;
@@ -82,14 +73,14 @@ public class Korisnik {
 		this.prezime = prezime;
 	}
 	
-	public Set<KorisnikHasPravo> getKorisnikHasPravo() {
+	public Set<KorisnikHasPravoDTO> getKorisnikHasPravo() {
 		return korisnikHasPravo;
 	}
-	public void setKorisnikHasPravo(Set<KorisnikHasPravo> korisnikHasPravo) {
+	public void setKorisnikHasPravo(Set<KorisnikHasPravoDTO> korisnikHasPravo) {
 		this.korisnikHasPravo = korisnikHasPravo;
 	}
 
-    
+	
 	
 	
 	

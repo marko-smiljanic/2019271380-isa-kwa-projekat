@@ -5,64 +5,53 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
 @Entity
-public class PravoPristupa {
+public class Kategorija {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(unique = true)
+   	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	@Column(length = 255)
 	private String naziv;
 	
+	@OneToMany(mappedBy = "kategorija")
+	private Set<Knjiga> knjige = new HashSet<Knjiga>();
 	
-	@OneToMany(mappedBy = "pravoPristupa")
-	private Set<KorisnikHasPravo> korisnikHasPravo = new HashSet<KorisnikHasPravo>();
-
 	
-	public PravoPristupa() {
+	public Kategorija() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public PravoPristupa(Long id, String naziv) {
+	
+	public Kategorija(Long id, String naziv) {
 		super();
 		this.id = id;
 		this.naziv = naziv;
 	}
-
 	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getNaziv() {
 		return naziv;
 	}
-
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
-
-	public Set<KorisnikHasPravo> getKorisnikHasPravo() {
-		return korisnikHasPravo;
+	public Set<Knjiga> getKnjige() {
+		return knjige;
 	}
-
-	public void setKorisnikHasPravo(Set<KorisnikHasPravo> korisnikHasPravo) {
-		this.korisnikHasPravo = korisnikHasPravo;
+	public void setKnjige(Set<Knjiga> knjige) {
+		this.knjige = knjige;
 	}
 	
 	
 	
-
 }

@@ -12,7 +12,7 @@ public class KorisnikHasPravo {
    	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	@ManyToOne
-	private Korisnik vlasnik;            
+	private Korisnik korisnik;            
 	@ManyToOne
 	private PravoPristupa pravoPristupa;
 	
@@ -23,10 +23,10 @@ public class KorisnikHasPravo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KorisnikHasPravo(Long id, Korisnik vlasnik, PravoPristupa pravoPristupa) {
+	public KorisnikHasPravo(Long id, Korisnik korisnik, PravoPristupa pravoPristupa) {
 		super();
 		this.id = id;
-		this.vlasnik = vlasnik;
+		this.korisnik = korisnik;
 		this.pravoPristupa = pravoPristupa;
 	}
 	
@@ -37,11 +37,11 @@ public class KorisnikHasPravo {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Korisnik getVlasnik() {
-		return vlasnik;
+	public Korisnik getKorisnik() {
+		return korisnik;
 	}
-	public void setVlasnik(Korisnik vlasnik) {
-		this.vlasnik = vlasnik;
+	public void setKorisnik(Korisnik korisnik) {
+		this.korisnik = korisnik;
 	}
 	public PravoPristupa getPravoPistupa() {
 		return pravoPristupa;
