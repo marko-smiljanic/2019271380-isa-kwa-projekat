@@ -36,6 +36,8 @@ Routing: Za navigaciju kroz aplikaciju.
 Struktura aplikacije:
 Backend (Spring Boot):
 
+
+####################################################################################
 Entiteti: Korisnik, Pravo pristupa, Korisnik has pravo, Knjiga, Kategorija, Autor, Iznajmljivanje, Recenzija.
 Kontroleri: Endpoints za knjige, korisnike, Iznajmljivanje, kategorije, autore i recenzije.
 Servisi: Logika aplikacije.

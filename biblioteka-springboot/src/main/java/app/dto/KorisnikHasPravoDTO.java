@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class KorisnikHasPravoDTO {
     private Long id;
-	private KorisnikDTO vlasnik; 
+	private KorisnikDTO korisnik; 
 	private PravoPristupaDTO pravoPistupa;
 	
 	
@@ -15,10 +15,10 @@ public class KorisnikHasPravoDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KorisnikHasPravoDTO(Long id, KorisnikDTO vlasnik, PravoPristupaDTO pravoPistupa) {
+	public KorisnikHasPravoDTO(Long id, KorisnikDTO korisnik, PravoPristupaDTO pravoPistupa) {
 		super();
 		this.id = id;
-		this.vlasnik = vlasnik;
+		this.korisnik = korisnik;
 		this.pravoPistupa = pravoPistupa;
 	}
 	
@@ -29,11 +29,11 @@ public class KorisnikHasPravoDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public KorisnikDTO getVlasnik() {
-		return vlasnik;
+	public KorisnikDTO getKorisnik() {
+		return korisnik;
 	}
-	public void setVlasnik(KorisnikDTO vlasnik) {
-		this.vlasnik = vlasnik;
+	public void setKorisnik(KorisnikDTO korisnik) {
+		this.korisnik = korisnik;
 	}
 	public PravoPristupaDTO getPravoPistupa() {
 		return pravoPistupa;

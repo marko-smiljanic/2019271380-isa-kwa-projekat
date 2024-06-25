@@ -1,7 +1,6 @@
-package app.model;
+package app.dto;
 
 public class TokenDTO {
-	
 	private String token;
 
 	public TokenDTO() {

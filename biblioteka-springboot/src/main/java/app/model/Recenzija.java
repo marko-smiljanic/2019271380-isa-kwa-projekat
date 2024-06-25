@@ -20,6 +20,8 @@ public class Recenzija {
 	@Lob
 	@Column(nullable = false)
 	private String opis;
+	@Column(nullable = false)
+	private Integer ocena;    				//1-5, kako validirati sa ugradjenim stvarima, bez da dodajem novu zavistnost u pom.xml?
 	
 	
 	public Recenzija(Long id, Korisnik korisnik, Knjiga knjiga, String opis) {
