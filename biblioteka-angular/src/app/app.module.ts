@@ -13,12 +13,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { KnjigaPrikazComponent } from './component/knjiga-prikaz/knjiga-prikaz.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    KnjigaPrikazComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +35,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatTableModule,
     BrowserAnimationsModule
-
-
+    
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

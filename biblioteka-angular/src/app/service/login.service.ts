@@ -10,8 +10,8 @@ import { Token } from '../model/token';
 export class LoginService {
 
   token : null | string = null;        
-
   userr: any = null;
+
 
   constructor(private client : HttpClient) { }
 
@@ -19,7 +19,7 @@ export class LoginService {
     return this.client.post<Token>("http://localhost:8080/api/login", user).pipe(
       tap(tt => {
         this.token = tt.token;
-        this.userr = JSON.parse(atob(tt.token.split(".")[1]))        //atob je dekodovanje base64 zapisanog tokena
+        this.userr = JSON.parse(atob(tt.token.split(".")[1]))         //atob je dekodovanje base64 zapisanog tokena
         console.log(this.userr);
       })
     );

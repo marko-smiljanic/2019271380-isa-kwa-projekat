@@ -1,0 +1,29 @@
+<p>knjiga-prikaz works!</p>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Cena</th>
+        <th>Datum objave</th>
+        <th>Komada na stanju</th>
+        <th>Naslov</th>
+        <th>Autor id</th>
+        <th>Kategorija id</th>
+        <th>AKCIJE</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let n of elements">
+            <td>{{n["id"]}}</td>
+            <td>{{n["cena"]}}</td>
+            <td>{{n["datumObjave"]}}</td>
+            <td>{{n["komadaNaStanju"]}}</td>
+            <td>{{n["naslov"]}}</td>
+            <td>{{n.autor?.ime}}</td>
+            <td>{{n.kategorija?.naziv}}</td>
+            <td colspan="2">
+                <button (click)="izbrisi(n['id'])">Brisanje</button> 
+                <button (click)="proslediZaIzmenu(n)">Izmena</button>  
+            </td>
+        </tr>
+    </tbody>
+</table>

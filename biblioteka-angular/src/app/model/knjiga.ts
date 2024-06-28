@@ -4,14 +4,14 @@ import { Kategorija } from "./kategorija";
 import { Recenzija } from "./recenzija";
 
 export interface Knjiga {
-    id?: number,
+    id: number,
     naslov: string,
     datumObjave: Date,
     komadaNaStanju?: number,
-    cena?: number,
+    cena: number,
     autor?: Autor,
-    kategorija?: Kategorija,
-    recenzije?: Recenzija[],
-    iznajmljivanja?: Iznajmljivanje[];
+    kategorija: Kategorija,
+    recenzije: Recenzija[],
+    iznajmljivanja: Iznajmljivanje[];
 
 }

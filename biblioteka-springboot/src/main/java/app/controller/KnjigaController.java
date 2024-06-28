@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import app.dto.KnjigaDTO;
 import app.dto.Konverzija;
@@ -18,6 +19,7 @@ import app.service.KnjigaService;
 
 @Controller
 @RequestMapping(path = "api/knjige")
+@CrossOrigin(origins = "http://localhost:4200")
 public class KnjigaController {
 
 	@Autowired
