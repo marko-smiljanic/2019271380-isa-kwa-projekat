@@ -43,7 +43,7 @@ export class KnjigaPrikazComponent implements OnInit {
 
 
   //treba da vidim kako bih ovo stavio u angular material, kako da implementiram login i prava pristupa za ovu komponentu, nakon toga sibati dalje komponente
-  //angular material za main komponentu, neki meni ili tako nesto
+  //angular material za main komponentu, neki meni ili tako nesto asdada
 
 
 
