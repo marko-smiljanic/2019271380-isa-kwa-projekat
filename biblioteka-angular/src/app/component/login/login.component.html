@@ -1,0 +1,21 @@
+<p>login works!</p>
+
+<form (ngSubmit)="ulogujSe()" [formGroup]="forma">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>User name: </mat-label>
+            <input matInput type="text" required formControlName="username">
+        </mat-form-field> 
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Password:  </mat-label>
+            <input matInput type="password" required formControlName="password">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <button type="submit" mat-raised-button color="primary">Potvrdi</button>
+    </div>
+</form>
