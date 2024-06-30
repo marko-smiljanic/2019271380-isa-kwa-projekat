@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -10,12 +11,12 @@ import { LoginService } from 'src/app/service/login.service';
 export class LoginComponent implements OnInit {
 
 
-  constructor(private loginServis : LoginService) { }
+  constructor(private loginServis : LoginService, private router: Router) { }
 
 
   forma = new FormGroup({
-    "username": new FormControl(null, Validators.required),
-    "password": new FormControl(null, Validators.required)
+    "korisnickoIme": new FormControl(null, Validators.required),
+    "lozinka": new FormControl(null, Validators.required)
   });
 
 
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     if(this.forma.valid){
       console.log(this.forma.value);
       this.loginServis.login(this.forma.value).subscribe(_ => {
-        
+        this.router.navigate(["knjiga-prikaz"]);
       });
     }
   }

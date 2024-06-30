@@ -13,16 +13,43 @@ export class LoginService {
   userr: any = null;
 
 
-  constructor(private client : HttpClient) { }
+  constructor(private client : HttpClient) { 
+    const sacuvanToken = localStorage.getItem('accessToken');
+    if (sacuvanToken) {
+      this.token = sacuvanToken;
+      this.userr = JSON.parse(atob(sacuvanToken.split(".")[1]));
+    }
+  }
 
-  login(user: User){      
+
+  login(user: User){    
+    //za svaki slucaj, ako je neko vec bio ulogovan da se staro obrise, jer u razvoju ulogovacu se brdo puta sa drugim korisnicima
+    localStorage.removeItem('accessToken');
+
     return this.client.post<Token>("http://localhost:8080/api/login", user).pipe(
       tap(tt => {
         this.token = tt.token;
         this.userr = JSON.parse(atob(tt.token.split(".")[1]))         //atob je dekodovanje base64 zapisanog tokena
         console.log(this.userr);
+        localStorage.setItem('accessToken', tt.token);  //ako je uspesno logovanje cuvamo u local storage token
       })
     );
+  }
+
+  logout(){
+    this.token = null;
+    this.userr = null;
+    localStorage.removeItem('accessToken');
+    window.location.reload();   //zbog reseta prikaza
+  }
+
+
+  daLiJeNekoUlogovan(){
+    if(this.userr != null){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   validateRoles(roles: any, method="any"){            
@@ -50,6 +77,7 @@ export class LoginService {
     } 
     return false;
   }
+
 
   
 

@@ -1,5 +1,5 @@
 <div class="kontejner">
-    <button mat-raised-button color="primary" (click)="dodaj()">Dodaj</button>
+    <button mat-raised-button color="primary" (click)="dodaj()"  *ngIf="validirajUloge(['ROLE_ADMIN'])">Dodaj</button>
 </div>
 
 <div class="kontejner">
@@ -41,10 +41,11 @@
         </ng-container>
         
         <ng-container matColumnDef="akcije">
-            <th mat-header-cell *matHeaderCellDef>AKCIJE</th>
+            <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element">
-                <button mat-raised-button color="warn"(click)="izbrisi(element.id)">Brisanje</button>
-                <button mat-raised-button color="primary"(click)="proslediZaIzmenu(element)">Izmena</button>
+                <button mat-raised-button color="warn"(click)="izbrisi(element.id)"  *ngIf="validirajUloge(['ROLE_ADMIN'])">Brisanje</button>
+                <button mat-raised-button color="primary"(click)="proslediZaIzmenu(element)"  *ngIf="validirajUloge(['ROLE_ADMIN'])">Izmena</button>
+                
             </td>
         </ng-container>
 

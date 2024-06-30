@@ -23,6 +23,8 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	@Autowired
 	KorisnikService servis;
 	
+	
+	//ovo je za logovanje korisnika za serversku stranu. Vracanje ugradjenog User objekta i postavljanje prava pristupa kroz jpa
 	@Transactional
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

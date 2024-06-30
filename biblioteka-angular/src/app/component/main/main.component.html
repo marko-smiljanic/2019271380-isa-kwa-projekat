@@ -10,17 +10,20 @@
       <ul class="navbar-nav">
 
 
-        <li class="nav-item">
+
+        <li class="nav-item" *ngIf="validirajUloge(['ROLE_USER'])">
           <a class="nav-link" routerLink="knjiga-prikaz" routerLinkActive="active" aria-current="page">Knjige</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">Uloguj se</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">asd</a>
+          <a class="nav-link" routerLink="/login" routerLinkActive="active" *ngIf="!daLiJeNekoUlogovan()">Uloguj se</a>
+          <a class="nav-link" (click)="izlogujSe()" routerLinkActive="active" *ngIf="daLiJeNekoUlogovan()">Izloguj se</a>
         </li>
 
         
+
+
+
+
 
       </ul>
       <form class="d-flex" role="search" >

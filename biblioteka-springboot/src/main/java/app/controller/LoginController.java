@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,7 @@ import app.utils.TokenUtils;
 
 @Controller
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:4200")
 public class LoginController {
 
 	@Autowired
@@ -43,6 +45,9 @@ public class LoginController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	
+	//logovanje za prava pristupa na serverskoj stranu (za koriscenje anotacije secured. Za klijentsku stranu moramo kroz generisani token koji vraca server
+	//tokom logovanja, vratiti roles kroz payloads
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
 	public ResponseEntity<TokenDTO> login(@RequestBody KorisnikDTO korisnik) {
 		try {
