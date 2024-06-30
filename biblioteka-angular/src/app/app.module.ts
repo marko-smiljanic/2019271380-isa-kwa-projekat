@@ -15,6 +15,8 @@ import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { KnjigaPrikazComponent } from './component/knjiga-prikaz/knjiga-prikaz.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -34,7 +36,10 @@ import { KnjigaPrikazComponent } from './component/knjiga-prikaz/knjiga-prikaz.c
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],

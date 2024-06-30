@@ -1,20 +1,33 @@
-<p>main works!</p>
 
-<a routerLink="/login">zz</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Biblioteka</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
 
-<app-knjiga-prikaz></app-knjiga-prikaz>
 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="knjiga-prikaz" routerLinkActive="active" aria-current="page">Knjige</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Uloguj se</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">asd</a>
+        </li>
 
+        
 
+      </ul>
+      <form class="d-flex" role="search" >
+        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
-<!-- <br>
-<a routerLink="/login">Login</a>
-<br>
-<a routerLink="/tabela-osoba" *ngIf="validirajUloge(['ROLE_ADMIN'])">Tabela svih osoba</a>
-<br>
-<a routerLink="/forma-osoba" *ngIf="validirajUloge(['ROLE_ADMIN'])">Forma osoba</a>
-<br>
-<a routerLink="/tabela-rezervacija" *ngIf="validirajUloge(['ROLE_USER', 'ROLE_ADMIN'])">Tabela svih rezervacija</a>
-<br>
-<a routerLink="/forma-rezervacija" *ngIf="validirajUloge(['ROLE_ADMIN'])">Forma rezervacija</a>
-<br> -->

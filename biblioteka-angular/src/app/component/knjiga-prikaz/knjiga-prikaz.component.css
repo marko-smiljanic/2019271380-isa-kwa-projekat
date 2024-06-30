@@ -1,0 +1,64 @@
+.table {
+    width: 80%;
+  }
+  
+.mat-column-id {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+}
+
+.mat-column-cena {
+    padding-left: 16px;
+    font-size: 20px;
+    padding: 30px;
+    width: auto;
+}
+
+.mat-column-datumObjave {
+    font-style: italic;
+    text-align: center;
+    padding: 30px;
+    width: auto;
+}
+
+.mat-column-komadaNaStanju {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    padding: 30px;
+    width: auto;
+}
+
+.mat-column-naslov {
+    width: auto;
+    text-align: center;
+    padding: 30px;
+    width: auto;
+
+}
+
+.mat-column-autor {
+    width: auto;
+    text-align: center;
+    padding: 30px;
+    width: auto;
+
+}
+
+.mat-column-kategorija {
+    width: auto;
+    text-align: center;
+    padding: 30px;
+    width: auto;
+
+}
+.mat-column-akcije {
+    width: auto;
+    text-align: center;
+    font-weight: bold;
+    padding: 30px;
+    width: auto;
+
+}
