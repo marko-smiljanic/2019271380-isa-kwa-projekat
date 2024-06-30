@@ -2,3 +2,20 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+ /*globalni stil kojem mogu da pristupam iz bilo koje komponente */
+.kontejner {  
+    display: flex;
+    justify-content: center; /* Postavlja formu u sredinu horizontalno */
+    align-items: center; /* Postavlja formu u sredinu vertikalno */
+    margin-top: 50px;
+    text-align: center;
+}
+
+.kontejner button{
+    margin-right: 10px;
+}
+
+

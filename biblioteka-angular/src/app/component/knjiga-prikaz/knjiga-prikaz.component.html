@@ -1,51 +1,58 @@
+<div class="kontejner">
+    <button mat-raised-button color="primary" (click)="dodaj()">Dodaj</button>
+</div>
 
-<table mat-table [dataSource]="elements" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{element.id}}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="cena">
-        <th mat-header-cell *matHeaderCellDef>Cena</th>
-        <td mat-cell *matCellDef="let element">{{element.cena + "din"}}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="datumObjave">
-        <th mat-header-cell *matHeaderCellDef>Datum objave</th>
-        <td mat-cell *matCellDef="let element">{{element.datumObjave | date}}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="komadaNaStanju">
-        <th mat-header-cell *matHeaderCellDef>Komada na stanju</th>
-        <td mat-cell *matCellDef="let element">{{element.komadaNaStanju}}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="naslov">
-        <th mat-header-cell *matHeaderCellDef>Naslov</th>
-        <td mat-cell *matCellDef="let element">{{element.naslov}}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="autor">
-        <th mat-header-cell *matHeaderCellDef>Autor</th>
-        <td mat-cell *matCellDef="let element">{{element.autor?.ime + " " + element.autor?.prezime }}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="kategorija">
-        <th mat-header-cell *matHeaderCellDef>Kategorija</th>
-        <td mat-cell *matCellDef="let element">{{element.kategorija?.naziv}}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="akcije">
-        <th mat-header-cell *matHeaderCellDef>AKCIJE</th>
-        <td mat-cell *matCellDef="let element">
-            <button mat-button (click)="izbrisi(element.id)">Brisanje</button>
-            <button mat-button (click)="proslediZaIzmenu(element)">Izmena</button>
-        </td>
-    </ng-container>
+<div class="kontejner">
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <table mat-table [dataSource]="elements" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="cena">
+            <th mat-header-cell *matHeaderCellDef>Cena</th>
+            <td mat-cell *matCellDef="let element">{{element.cena + "din"}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="datumObjave">
+            <th mat-header-cell *matHeaderCellDef>Datum objave</th>
+            <td mat-cell *matCellDef="let element">{{element.datumObjave | date}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="komadaNaStanju">
+            <th mat-header-cell *matHeaderCellDef>Komada na stanju</th>
+            <td mat-cell *matCellDef="let element">{{element.komadaNaStanju}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="naslov">
+            <th mat-header-cell *matHeaderCellDef>Naslov</th>
+            <td mat-cell *matCellDef="let element">{{element.naslov}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="autor">
+            <th mat-header-cell *matHeaderCellDef>Autor</th>
+            <td mat-cell *matCellDef="let element">{{element.autor?.ime + " " + element.autor?.prezime }}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="kategorija">
+            <th mat-header-cell *matHeaderCellDef>Kategorija</th>
+            <td mat-cell *matCellDef="let element">{{element.kategorija?.naziv}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="akcije">
+            <th mat-header-cell *matHeaderCellDef>AKCIJE</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="warn"(click)="izbrisi(element.id)">Brisanje</button>
+                <button mat-raised-button color="primary"(click)="proslediZaIzmenu(element)">Izmena</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
 
 
 

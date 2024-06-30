@@ -17,6 +17,11 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { KnjigaPrikazComponent } from './component/knjiga-prikaz/knjiga-prikaz.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { KnjigaFormaComponent } from './component/knjiga-forma/knjiga-forma.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -24,7 +29,8 @@ import { MatIconModule } from '@angular/material/icon';
     AppComponent,
     MainComponent,
     LoginComponent,
-    KnjigaPrikazComponent
+    KnjigaPrikazComponent,
+    KnjigaFormaComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +45,11 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatButtonModule
     
     
   ],

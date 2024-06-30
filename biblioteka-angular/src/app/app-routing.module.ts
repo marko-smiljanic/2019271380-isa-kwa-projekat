@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { MainComponent } from './component/main/main.component';
 import { KnjigaPrikazComponent } from './component/knjiga-prikaz/knjiga-prikaz.component';
+import { KnjigaFormaComponent } from './component/knjiga-forma/knjiga-forma.component';
 
 const routes: Routes = [
   {path: "", component: KnjigaPrikazComponent},
-  {path: "login", component: LoginComponent}
-  // {path: "knjiga-prikaz", component: KnjigaPrikazComponent}
+  {path: "knjiga-prikaz", component: KnjigaPrikazComponent},
+  {path: "login", component: LoginComponent},
+  {path: "knjiga-forma", component: KnjigaFormaComponent}
 ];
 
 @NgModule({

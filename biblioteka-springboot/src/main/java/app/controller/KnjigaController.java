@@ -57,7 +57,7 @@ public class KnjigaController {
 	
 	
 	@RequestMapping(path = "", method = RequestMethod.POST)
-	public ResponseEntity<KnjigaDTO> dodaj(@RequestBody KnjigaDTO nnn){   
+	public ResponseEntity<KnjigaDTO> dodaj(@RequestBody Object nnn){   
 		if(nnn == null) {
 			return new ResponseEntity<KnjigaDTO>(HttpStatus.NOT_FOUND);
 		} 								
@@ -70,6 +70,7 @@ public class KnjigaController {
 	}
 	
 	
+	//Najbolje je da stavim object jer ne znam u kakvom ce formatu i redosledu klijent da prosledi podatke
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<KnjigaDTO> izmeni(@PathVariable("id") Long id, @RequestBody Object nnn){
 		Knjiga n = this.servis.findById(id).orElse(null);

@@ -1,0 +1,65 @@
+
+<div class="kontejner">
+<form [formGroup]="forma" (submit)="naSubmit()">
+    <div>
+        <h2 *ngIf="forma.value.id != null">Unesite podatke za izmenu</h2>
+        <h2 *ngIf="forma.value.id == null">Unesite podatke za dodavanje</h2>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Cena</mat-label>               
+            <input matInput type="number" name="cena" formControlName="cena"> 
+        </mat-form-field>  
+    </div>
+    <div>
+      <!-- <label>Datum objave</label>
+      <input type="datetime-local" name="datumObjave" formControlName="datumObjave"> -->
+      <mat-form-field>
+        <mat-label>Datum objave</mat-label>  
+        <input matInput [matDatepicker]="picker" formControlName="datumObjave">
+        <mat-datepicker-toggle matISuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Komada na stanju</mat-label>
+            <input matInput type="number" name="komadaNaStanju" formControlName="komadaNaStanju">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Naslov</mat-label>
+            <input matInput type="text" name="naslov" formControlName="naslov">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Autor</mat-label>
+            <mat-select formControlName="autor">
+                <mat-option *ngFor="let n of autori" [value]="n">{{ n.ime + " " + n.prezime}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Kategorija</mat-label>
+            <mat-select formControlName="kategorija">
+                <mat-option  *ngFor="let n of kategorije" [value]="n">{{ n.naziv }}</mat-option >
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+
+    
+    <div>
+      <button mat-raised-button color="primary" type="submit" *ngIf="forma.value.id == null">Dodaj</button>
+      <button mat-raised-button color="primary" type="submit" *ngIf="forma.value.id != null">Izmeni</button>
+      <button mat-raised-button color="warn" type="submit" (click)="forma.reset(); resetujElementZaIzmenuUServisu()">Ponisti</button>               
+    </div>
+  </form>
+</div>
