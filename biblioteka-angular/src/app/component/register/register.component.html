@@ -1,20 +1,11 @@
 
-<div class="kontejner">
-    <h2>Nemas nalog?</h2>
-</div>
-
-<div class="kontejner"> 
-    <button mat-raised-button color="warn" (click)="prebaciNaNapraviNalog()">Napravi novi nalog</button>
-</div>
-
-
 
 <div class="kontejner">
 
-    <form (ngSubmit)="ulogujSe()" [formGroup]="forma">
+    <form (ngSubmit)="registrujSe()" [formGroup]="forma">
 
         <div class="kontejner">
-            <h2>Imas nalog? Uloguj se.</h2>
+            <h2>Unesi potrebne podatke za svoj nalog.</h2>
         </div>
 
         <div>
@@ -28,6 +19,20 @@
             <mat-form-field appearance="fill">
                 <mat-label>Lozinka  </mat-label>
                 <input matInput type="password" required formControlName="lozinka">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Ime  </mat-label>
+                <input matInput type="text" required formControlName="ime">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Prezime  </mat-label>
+                <input matInput type="text" required formControlName="prezime">
             </mat-form-field>
         </div>
 

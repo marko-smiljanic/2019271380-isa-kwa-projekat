@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { tap } from 'rxjs';
 import { User } from '../model/user';
 import { Token } from '../model/token';
+import { KorisnikService } from './korisnik.service';
+import { Korisnik } from '../model/korisnik';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class LoginService {
   userr: any = null;
 
 
-  constructor(private client : HttpClient) { 
+  constructor(private client : HttpClient, private korisnikServis: KorisnikService) { 
     const sacuvanToken = localStorage.getItem('accessToken');
     if (sacuvanToken) {
       this.token = sacuvanToken;
@@ -79,6 +81,11 @@ export class LoginService {
   }
 
 
+  //kreiranje novog korisnika i setovanje prava pristupa na user
+  register(n: Korisnik){
+    //create je register!!!
+    this.korisnikServis.create(n);
+  }
   
 
 }

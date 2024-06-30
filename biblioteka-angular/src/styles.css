@@ -10,7 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
     justify-content: center; /* Postavlja formu u sredinu horizontalno */
     align-items: center; /* Postavlja formu u sredinu vertikalno */
-    margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
 }
 

@@ -1,6 +1,7 @@
 package app.controller;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import app.dto.Konverzija;
 import app.dto.KorisnikDTO;
 import app.model.Korisnik;
+import app.model.KorisnikHasPravo;
+import app.model.PravoPristupa;
+import app.service.KorisnikHasPravoService;
 import app.service.KorisnikService;
+import app.service.PravoPristupaService;
 
 @Controller
 @RequestMapping(path = "api/korisnici")
@@ -26,6 +31,12 @@ public class KorisnikController {
 	
 	@Autowired
 	KorisnikService servis;
+	
+	@Autowired
+	PravoPristupaService pravoPristupaServis;
+	
+	@Autowired
+	KorisnikHasPravoService korisnikHasPravoService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -65,13 +76,20 @@ public class KorisnikController {
 	}
 	
 	
-	@RequestMapping(path = "", method = RequestMethod.POST)
+	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public ResponseEntity<KorisnikDTO> dodaj(@RequestBody KorisnikDTO nnn){   
 		if(nnn == null) {
 			return new ResponseEntity<KorisnikDTO>(HttpStatus.NOT_FOUND);
 		} 								
 		nnn.setLozinka(passwordEncoder.encode(nnn.getLozinka()));   
 		Korisnik n = this.servis.create(Konverzija.konvertujUEntitet(nnn, Korisnik.class));     
+		
+		
+		//setujem pravo pristupa po defaultu na ROLE USER. Dohvatasm po nazivu koji je unique, onda kreiram korisnik has pravo
+		PravoPristupa pravoAdmin = this.pravoPristupaServis.pronadjiPravoPoNazivu("ROLE_USER").orElse(null);
+		KorisnikHasPravo khp = new KorisnikHasPravo(null, n, pravoAdmin);
+		khp = this.korisnikHasPravoService.create(khp);
+		
 		
 		//vracanje dto rezultata
 		KorisnikDTO ndto = Konverzija.konvertujUDTO(n, KorisnikDTO.class);

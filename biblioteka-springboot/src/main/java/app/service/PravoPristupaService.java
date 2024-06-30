@@ -44,5 +44,8 @@ public class PravoPristupaService {
 		this.repo.deleteById(id);
 	}
 	
+	public Optional<PravoPristupa> pronadjiPravoPoNazivu(String naziv) {
+		return this.repo.findByNaziv(naziv);
+	}
 
 }

@@ -46,8 +46,8 @@ public class LoginController {
 	private PasswordEncoder passwordEncoder;
 
 	
-	//logovanje za prava pristupa na serverskoj stranu (za koriscenje anotacije secured. Za klijentsku stranu moramo kroz generisani token koji vraca server
-	//tokom logovanja, vratiti roles kroz payloads
+	//logovanje za prava pristupa na serverskoj stranu (za koriscenje anotacije secured. Za klijentsku stranu moramo kroz generisani token koji salje server
+	//tokom logovanja, vratit i njegove role
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
 	public ResponseEntity<TokenDTO> login(@RequestBody KorisnikDTO korisnik) {
 		try {

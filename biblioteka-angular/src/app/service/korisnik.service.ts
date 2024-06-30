@@ -17,8 +17,10 @@ export class KorisnikService {
   getOne(id: number){
     return this.client.get<Korisnik>(`http://localhost:8080/api/korisnici/${id}`);
   }
+  
+  //create je register
   create(n : Korisnik){
-    return this.client.post("http://localhost:8080/api/korisnici", n);
+    return this.client.post("http://localhost:8080/api/korisnici/register", n);
   }
   update(id : number, n : Korisnik){
     return this.client.put(`http://localhost:8080/api/korisnici/${id}`, n);

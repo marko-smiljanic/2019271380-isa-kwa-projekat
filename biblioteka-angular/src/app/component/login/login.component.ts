@@ -32,4 +32,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  prebaciNaNapraviNalog(){
+    this.router.navigate(["register"]);
+  }
+
 }
