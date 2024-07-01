@@ -11,12 +11,15 @@
 
 
 
-        <li class="nav-item" *ngIf="validirajUloge(['ROLE_USER'])">
+        <li class="nav-item">
           <a class="nav-link" routerLink="knjiga-prikaz" routerLinkActive="active" aria-current="page">Knjige</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/login" routerLinkActive="active" *ngIf="!daLiJeNekoUlogovan()">Uloguj se</a>
           <a class="nav-link" (click)="izlogujSe()" routerLinkActive="active" *ngIf="daLiJeNekoUlogovan()">Izloguj se</a>
+        </li>
+        <li class="nav-item" *ngIf="validirajUloge(['ROLE_USER'])">
+          <a class="nav-link" routerLink="iznajmljivanja-prikaz" routerLinkActive="active" aria-current="page">Iznajmljivanja</a>
         </li>
 
         

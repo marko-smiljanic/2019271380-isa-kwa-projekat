@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { RegisterComponent } from './component/register/register.component';
+import { IznajmljivanjaPrikazComponent } from './component/iznajmljivanja-prikaz/iznajmljivanja-prikaz.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RegisterComponent } from './component/register/register.component';
     LoginComponent,
     KnjigaPrikazComponent,
     KnjigaFormaComponent,
-    RegisterComponent
+    RegisterComponent,
+    IznajmljivanjaPrikazComponent
   ],
   imports: [
     BrowserModule,

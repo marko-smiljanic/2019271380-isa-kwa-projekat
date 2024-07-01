@@ -80,12 +80,6 @@ export class LoginService {
     return false;
   }
 
-
-  //kreiranje novog korisnika i setovanje prava pristupa na user
-  register(n: Korisnik){
-    //create je register!!!
-    this.korisnikServis.create(n);
-  }
   
 
 }

@@ -17,6 +17,12 @@ export class KorisnikService {
   getOne(id: number){
     return this.client.get<Korisnik>(`http://localhost:8080/api/korisnici/${id}`);
   }
+
+  
+  dobaviPoKorisnickomImenu(korisnickoIme: string){
+    return this.client.get<Korisnik>(`http://localhost:8080/api/korisnici/dobaviPoKorImenu/${korisnickoIme}`);
+  }
+
   
   //create je register
   create(n : Korisnik){

@@ -1,0 +1,49 @@
+
+<!-- <div class="kontejner">
+    <button mat-raised-button color="primary" (click)="dodaj()"  *ngIf="validirajUloge(['ROLE_ADMIN'])">Dodaj</button>
+</div> -->
+
+<div class="kontejner">
+
+    <table mat-table [dataSource]="elements" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="datumIznajmljivanja">
+            <th mat-header-cell *matHeaderCellDef>Datum iznajmljivanja</th>
+            <td mat-cell *matCellDef="let element">{{element.datumIznajmljivanja | date}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="datumVracanja">
+            <th mat-header-cell *matHeaderCellDef>Datum vracanja</th>
+            <td mat-cell *matCellDef="let element">{{element.datumVracanja | date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="korisnik">
+            <th mat-header-cell *matHeaderCellDef>Korisnik</th>
+            <td mat-cell *matCellDef="let element">{{element.korisnik?.korisnickoIme}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="knjiga">
+            <th mat-header-cell *matHeaderCellDef>Knjiga</th>
+            <td mat-cell *matCellDef="let element">{{element.knjiga?.naslov}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="akcije">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="warn"(click)="izbrisi(element.id)"  *ngIf="validirajUloge(['ROLE_ADMIN'])">Brisanje</button>
+                <!-- <button mat-raised-button color="primary"(click)="proslediZaIzmenu(element)"  *ngIf="validirajUloge(['ROLE_ADMIN'])">Izmena</button>
+                <button mat-raised-button color="primary"(click)="iznajmi()" *ngIf="validirajUloge(['ROLE_USER'])">Iznajmi</button> -->
+                
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Korisnik } from 'src/app/model/korisnik';
+import { User } from 'src/app/model/user';
 import { KorisnikService } from 'src/app/service/korisnik.service';
 import { LoginService } from 'src/app/service/login.service';
 
@@ -30,21 +31,30 @@ export class RegisterComponent implements OnInit {
   ulogujSe(){
     //pravim user objekat, setujem kor ime i lozinku i logujem se sa njim
     if(this.forma.valid){
-      console.log(this.forma.value);
-      this.loginServis.login(this.forma.value).subscribe(_ => {
+      let user = {
+        korisnickoIme: this.forma.value.korisnickoIme,
+        lozinka: this.forma.value.lozinka
+      };
+
+      console.log(user);
+      this.loginServis.login(user).subscribe(_ => {
         this.router.navigate(["knjiga-prikaz"]);
       });
     }
   }
 
   registrujSe(){
-      this.korisnikServis.create(this.forma.value).subscribe(_ =>{
-        this.korisnikServis.getAll().subscribe(x =>{
-          this.elementi = x;
+    if(this.forma.valid){
+        this.korisnikServis.create(this.forma.value).subscribe(_ =>{
+          this.korisnikServis.getAll().subscribe(x =>{
+            this.elementi = x;
 
-          // this.router.navigate(["knjiga-prikaz"]);
-        });
-    });
+            //odmah ga i ulogujem
+            this.ulogujSe();
+            this.router.navigate(["/"]);
+          });
+      });
+    } 
   }
 
 

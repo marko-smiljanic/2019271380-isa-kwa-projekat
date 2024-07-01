@@ -55,6 +55,23 @@ public class IznajmljivanjeController {
 		return new ResponseEntity<IznajmljivanjeDTO>(ndto, HttpStatus.OK);
 	}
 	
+	////////////////////////vraca sva iznajmljivanja od jednog korisnika
+	@RequestMapping(path = "dobaviPoKorisniku/{id}", method = RequestMethod.GET)									
+	public ResponseEntity<Iterable<IznajmljivanjeDTO>> dobaviPoKorisniku(@PathVariable("id") Long id){
+		ArrayList<IznajmljivanjeDTO> listadto = new ArrayList<IznajmljivanjeDTO>();		
+		
+		for(Iznajmljivanje n : this.servis.pronadjiPoKorisniku(id)) {
+			IznajmljivanjeDTO ndto = null;
+			ndto = Konverzija.konvertujUDTO(n, IznajmljivanjeDTO.class);
+			
+			listadto.add(ndto);
+		}			
+		
+		//vracanje dto rezultata
+		return new ResponseEntity<Iterable<IznajmljivanjeDTO>>(listadto, HttpStatus.OK);
+	}
+	
+	
 	
 	@RequestMapping(path = "", method = RequestMethod.POST)
 	public ResponseEntity<IznajmljivanjeDTO> dodaj(@RequestBody IznajmljivanjeDTO nnn){   

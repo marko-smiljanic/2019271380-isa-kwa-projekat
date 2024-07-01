@@ -76,6 +76,23 @@ public class KorisnikController {
 	}
 	
 	
+	
+	
+	@RequestMapping(path = "/dobaviPoKorImenu/{korisnickoIme}", method = RequestMethod.GET)									
+	public ResponseEntity<KorisnikDTO> dobaviJednuPoKorisnickomImenu(@PathVariable("korisnickoIme") String korisnickoIme){
+		Korisnik n = this.servis.findByKorisnickoIme(korisnickoIme).orElse(null);	
+		if(n == null) {
+			return new ResponseEntity<KorisnikDTO>(HttpStatus.NOT_FOUND);
+		}	
+		
+		//vracanje dto rezultata
+		KorisnikDTO ndto = null;
+		ndto = Konverzija.konvertujUDTO(n, KorisnikDTO.class);
+
+		return new ResponseEntity<KorisnikDTO>(ndto, HttpStatus.OK);
+	}
+	
+	
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public ResponseEntity<KorisnikDTO> dodaj(@RequestBody KorisnikDTO nnn){   
 		if(nnn == null) {

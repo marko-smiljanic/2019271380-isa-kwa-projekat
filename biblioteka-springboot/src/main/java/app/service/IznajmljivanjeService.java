@@ -1,5 +1,6 @@
 package app.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,12 @@ public class IznajmljivanjeService {
 	
 	public void delete(Long id) {
 		this.repo.deleteById(id);
+	}
+	
+	
+	
+	public List<Iznajmljivanje> pronadjiPoKorisniku(Long id) {
+		return this.repo.findByKorisnikId(id);
 	}
 	
 	

@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-.mat-column-cena {
+.mat-column-datumIznajmljivanja {
     padding-left: 16px;
     /* font-size: 25px; */
     padding: 30px;
@@ -17,14 +17,14 @@
     width: auto;
 }
 
-.mat-column-datumObjave {
+.mat-column-datumVracanja {
     font-style: italic;
     text-align: center;
     padding: 30px;
     width: auto;
 }
 
-.mat-column-komadaNaStanju {
+.mat-column-korisnik {
     width: 100px;
     text-align: center;
     font-weight: bold;
@@ -32,7 +32,7 @@
     width: auto;
 }
 
-.mat-column-naslov {
+.mat-column-knjiga {
     width: auto;
     text-align: center;
     padding: 30px;
@@ -40,21 +40,6 @@
 
 }
 
-.mat-column-autor {
-    width: auto;
-    text-align: center;
-    padding: 30px;
-    width: auto;
-
-}
-
-.mat-column-kategorija {
-    width: auto;
-    text-align: center;
-    padding: 30px;
-    width: auto;
-
-}
 .mat-column-akcije {
     width: auto;
     text-align: center;

@@ -17,6 +17,13 @@ export class IznajmljivanjeService {
   getOne(id: number){
     return this.client.get<Iznajmljivanje>(`http://localhost:8080/api/iznajmljivanja/${id}`);
   }
+
+  /////////////
+  dobaviPoKorisniku(id: number){
+    return this.client.get<Iznajmljivanje[]>(`http://localhost:8080/api/iznajmljivanja/dobaviPoKorisniku/${id}`);
+  }
+
+
   create(n : Iznajmljivanje){
     return this.client.post("http://localhost:8080/api/iznajmljivanja", n);
   }
